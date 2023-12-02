@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+            URL SHORTENER
+        </title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <body>
+            <h1>URL SHORTENER</h1>
+            <div class="my-4 form-inline">
+            <label for="original_url" class="sr-only">Enter the url</label>
+            <input type="url" class="form-control col mr-2" id="original_url" placeholder="Enter a URL"></input>
+            <button class="btn btn-success" id= "submitOriginalurl">Shrink</button>
+            </div>
+
+            
+            <table class="table table-striped table-responsive">
+                <thead>
+                    <tr>
+                        <th>Original URL</th>
+                        <th>Shortened URL</th>
+                        <th>token</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% shortUrls.forEach(shorturl => { %>
+                    <tr>
+                        <th><a href="<%= shorturl.originalURL %>"><%= shorturl.originalURL %></a></th>
+                        <th><a href="<%= shorturl.shortenedURL %>"><%= shorturl.shortenedURL %></a></th>
+                        <th><a href="<%= shorturl.token %>"><%= shorturl.token %></a></th>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </body>
+        <script src="/js/landing.js"></script>
+    </head>
+</html>
